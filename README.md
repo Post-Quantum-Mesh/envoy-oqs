@@ -4,11 +4,11 @@
   
 Open source implementation of quantum-resistant encryption algorithms for modular TLS communication
 
-- [Components](https://github.com/Post-Quantum-Mesh/nginx-oqs#components)
-- [Overview](https://github.com/Post-Quantum-Mesh/nginx-oqs#overview)
-- [Quick Start](https://github.com/Post-Quantum-Mesh/nginx-oqs#quick-start)
-  - [Local Environment Setup](https://github.com/Post-Quantum-Mesh/nginx-oqs#local-environment-setup)
-  - [TLS Demo](https://github.com/Post-Quantum-Mesh/nginx-oqs#tls-demo)
+- [Components](https://github.com/Post-Quantum-Mesh/envoy-oqs#components)
+- [Overview](https://github.com/Post-Quantum-Mesh/envoy-oqs#overview)
+- [Quick Start](https://github.com/Post-Quantum-Mesh/envoy-oqs#quick-start)
+  - [Local Environment Setup](https://github.com/Post-Quantum-Mesh/envoy-oqs#local-environment-setup)
+  - [TLS Demo](https://github.com/Post-Quantum-Mesh/envoy-oqs#tls-demo)
 
 ## Components
 
@@ -24,6 +24,8 @@ Open source implementation of quantum-resistant encryption algorithms for modula
 ## Overview
 
 < space holder >  
+
+## Quick Start
 
 ### Local Environment Setup
 
