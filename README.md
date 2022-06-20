@@ -35,11 +35,11 @@ Note:
   
 1. Update package manager
 
-        apt update
+        apt-get update
 
 2. Install Dependencies and Compiler
 
-        apt-get update
+        apt-get install -y autoconf automake cmake curl libtool make ninja-build patch python3-pip unzip virtualenv
 
 3. Install bazelisk as bazel (paths use /usr/local, modify to your desired directory)
 
