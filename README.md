@@ -69,7 +69,7 @@ Note:
 
 6. Clone modified Envoy-1.21.0 fork
 
-        git clone --single-branch --branch main https://github.com/drouhana/envoy-fork.git
+        git clone --single-branch --branch main https://github.com/drouhana/envoy-fork.git envoy
 
 7. Download and extract [Clang+LLVM 14.0.0 binary](https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0). Note: your specific binary may vary depending on your OS
 
