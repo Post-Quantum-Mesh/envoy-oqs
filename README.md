@@ -99,7 +99,36 @@ Note:
 
 ![Screenshot from 2022-06-20 10-15-40](https://user-images.githubusercontent.com/56026339/174651497-fde388e6-7de7-456b-87df-fbfe119fca15.png)
 
-## TLS Demo
+## TLS Demo (in progress)
 
-< space holder >
+Note: TLS currently is ONLY working with standard RSA encyrption
+
+### Startup TLS Server:
+
+Open one terminal and run the following command:
+
+    ./init.sh
+	
+The following commands will be run by the shell script:
+
+    sudo docker-compose pull
+    sudo docker-compose up --build -d
+    sudo docker-compose ps
+	
+### Query TLS Server:
+
+In a second terminal, run the following command:
+	
+    curl -k https://localhost:10000
+
+### Terminate TLS Server:
+
+In a second terminal, run the following command:
+    
+    ./kill.sh
+
+The following commands will be run by the shell script:
+
+    sudo docker kill $(sudo docker ps -q)
+    sudo docker container prune -f
 
