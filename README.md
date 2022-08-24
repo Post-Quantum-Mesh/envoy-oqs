@@ -99,22 +99,28 @@ Note:
 
 ![Screenshot from 2022-06-20 10-15-40](https://user-images.githubusercontent.com/56026339/174651497-fde388e6-7de7-456b-87df-fbfe119fca15.png)
 
-## TLS Demo (in progress)
+## TLS Demo
 
-Note: TLS currently is ONLY working with standard RSA encyrption
+Note: TLS currently is now functional with standard and post-quantum encryption (8-24 commit)
+
+### Generate Certificates:
+
+All necessary commands are encapsulated in gen_cert.sh. In order to change the encryption algorith, change the term following "-newkey" flag in lines 3 and 5. To execute, navigate to ./certs and run the following command:
+
+    ./gen_cert.sh
 
 ### Startup TLS Server:
 
 Open one terminal and run the following command:
 
     ./init.sh
-	
+
 The following commands will be run by the shell script:
 
     sudo docker-compose pull
     sudo docker-compose up --build -d
     sudo docker-compose ps
-	
+
 ### Query TLS Server:
 
 In a second terminal, run the following command:
