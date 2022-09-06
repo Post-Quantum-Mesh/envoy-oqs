@@ -97,7 +97,7 @@ Note:
 
         envoy-static --version
 
-![Screenshot from 2022-06-20 10-15-40](https://user-images.githubusercontent.com/56026339/174651497-fde388e6-7de7-456b-87df-fbfe119fca15.png)
+![image](https://user-images.githubusercontent.com/56026339/188688403-69b4d2cb-1ee4-4a26-b17f-d90f3166cd79.png)
 
 ## TLS Demo
 
