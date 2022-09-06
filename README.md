@@ -18,7 +18,7 @@ Open source implementation of quantum-resistant encryption algorithms for modula
 - [openssl-1.1.1](https://github.com/openssl/openssl/tree/OpenSSL_1_1_1-stable)
 
 ### Envoy Build
-- [Envoy-1.21.0 open source](https://github.com/envoyproxy/envoy/tree/release/v1.21)
+- [Envoy-1.23.0 open source](https://github.com/drouhana/envoy)
 
 
 ## Overview
@@ -69,9 +69,9 @@ Note:
         cmake -GNinja ..
         ninja
 
-6. Clone modified Envoy-1.21.0 fork
+6. Clone modified Envoy-1.23.0 fork
 
-        git clone --single-branch --branch main https://github.com/drouhana/envoy-fork.git envoy
+        git clone --single-branch --branch main https://github.com/drouhana/envoy.git envoy
 
 7. Download and extract [Clang+LLVM 14.0.0 binary](https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0). Note: your specific binary may vary depending on your OS
 
@@ -83,7 +83,7 @@ Note:
 8. Build user.bazelrc build file, add build parameters
 
         cd /usr/local/envoy
-        echo "build --config=libc++ --define quiche=disabled --define wasm=disabled --define deprecated_features=disabled --//bazel:http3=false --//source/extensions/quic/crypto_stream:enabled=false --//source/extensions/quic/proof_source:enabled=false" >> user.bazelrc
+        echo "build --config=libc++" >> user.bazelrc
 
 9. Build Envoy
 
