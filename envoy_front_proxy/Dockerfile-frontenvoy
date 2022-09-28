@@ -129,12 +129,10 @@ RUN bazel build -c opt envoy
 # Add envoy-static to PATH
 ENV PATH="${PATH}:/usr/local/envoy/bazel-bin/source/exe"
 
-
 # copy certs
 COPY ./certs/servercert.pem /etc/example/servercert.pem
 COPY ./certs/serverkey.pem /etc/example/serverkey.pem
-COPY ./certs/CA_cert.pem /etc/example/CA_cert.pem
-COPY ./envoy-https-http.yaml /etc/envoy.yaml
+COPY ./front-envoy.yaml /etc/example/front-envoy.yaml
 
 
 WORKDIR /etc/example
@@ -142,8 +140,7 @@ RUN chown "$USER" -R *
 
 RUN chmod go+r /etc/example/servercert.pem
 RUN chmod go+r /etc/example/serverkey.pem
-RUN chmod go+r /etc/example/CA_cert.pem
-RUN chmod go+r /etc/envoy.yaml
+RUN chmod go+r /etc/example/front-envoy.yaml
 
 
-CMD ["envoy-static", "-c /etc/envoy.yaml"]
+CMD ["envoy-static", "-c", "/etc/example/front-envoy.yaml", "--service-cluster", "front-proxy"]

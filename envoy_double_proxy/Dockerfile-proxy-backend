@@ -1,0 +1,16 @@
+FROM drouhana/envoy-oqs:envoy-oqs-base
+
+COPY ./envoy-backend.yaml /etc/example/envoy.yaml
+COPY ./certs/CA_cert.pem /etc/example/cacert.pem
+COPY ./certs/localhost-backend.pem /etc/example/servercert.pem
+COPY ./certs/localhostkey.pem /etc/example/serverkey.pem
+
+WORKDIR /etc/example
+RUN chown "$USER" -R *
+
+RUN chmod go+r /etc/example/envoy.yaml 
+RUN chmod go+r /etc/example/cacert.pem 
+RUN chmod go+r /etc/example/serverkey.pem 
+RUN chmod go+r /etc/example/servercert.pem
+
+CMD ["envoy-static", "-c /etc/example/envoy.yaml"]

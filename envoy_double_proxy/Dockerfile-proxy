@@ -1,0 +1,10 @@
+FROM drouhana/envoy-oqs:envoy-oqs-base
+
+COPY ./envoy.yaml /etc/example/envoy.yaml
+
+WORKDIR /etc/example
+RUN chown "$USER" -R *
+
+RUN chmod go+r /etc/example/envoy.yaml
+
+CMD ["envoy-static", "-c /etc/example/envoy.yaml"]
