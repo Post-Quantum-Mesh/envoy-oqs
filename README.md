@@ -76,7 +76,7 @@ Note:
 
 7. Download and extract [Clang+LLVM 14.0.0 binary](https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0). Note: your specific binary may vary depending on your OS
 
-        wget -O clang+llvm-14.0.0.tar.xs https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+        wget -O clang+llvm-14.0.0.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
         tar -xf clang+llvm-14.0.0.tar.xz
         cd /usr/local/envoy
         bazel/setup_clang.sh /usr/local/clang+llvm-14.0.0
