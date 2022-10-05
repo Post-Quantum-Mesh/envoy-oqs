@@ -7,6 +7,7 @@ Open source implementation of quantum-resistant encryption algorithms for modula
 - [Components](https://github.com/Post-Quantum-Mesh/envoy-oqs#components)
 - [Overview](https://github.com/Post-Quantum-Mesh/envoy-oqs#overview)
 - [Quick Start](https://github.com/Post-Quantum-Mesh/envoy-oqs#quick-start)
+  - [Docker Image]()
   - [Local Environment Setup](https://github.com/Post-Quantum-Mesh/envoy-oqs#local-environment-setup)
 - [Post-Quantum Enabled Demos](https://github.com/Post-Quantum-Mesh/envoy-oqs#post-quantum-enabled-demos)
   - [Transport Layer Security (TLS)](https://github.com/Post-Quantum-Mesh/envoy-oqs#transport-layer-security-tls)
@@ -29,6 +30,18 @@ Open source implementation of quantum-resistant encryption algorithms for modula
 < space holder >  
 
 ## Quick Start
+
+### Docker Image
+
+A compiled [docker image](https://hub.docker.com/layers/drouhana/envoy-oqs/envoy/images/sha256-e779ccfd8707e31fbf3f47f1f2ac99cb52ea56f6e923a87fbb12b7fa1dbca114?context=repo) has been provided for development use.
+
+To incorporate into a dockerfile, set the base image build stage as
+
+    FROM drouhana/envoy-oqs:envoy
+
+The envoy-static binary has been already added to path, and symlinked to "envoy." To invoke in a dockerfile, the command is the same as the standard envoy implementation. Example:
+
+    CMD ["envoy", "-c", "/etc/example/envoy.yaml"]
 
 ### Local Environment Setup
 
