@@ -114,7 +114,7 @@ Installation Notes:
 
 ![image](https://user-images.githubusercontent.com/56026339/188688403-69b4d2cb-1ee4-4a26-b17f-d90f3166cd79.png)
 
-# Demos
+# Post-Quantum Enabled Demos
 
 Note: All post-quantum enabled demos are located in the ./examples/ directory.
 
