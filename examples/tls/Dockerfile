@@ -4,7 +4,7 @@ ARG OPENSSL_PATH=/usr/local/openssl
 ARG MAKE_DEFINES="-j 9"					  # 8 virtual cores + 1 manager
 
 
-FROM ubuntu:20.04 as first_stage
+FROM ubuntu:22.04 as first_stage
 
 
 # Take in global arguments
