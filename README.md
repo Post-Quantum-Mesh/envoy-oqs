@@ -30,9 +30,11 @@ Open source implementation of quantum-resistant encryption algorithms for modula
 
 ### Local Environment Setup
 
-Note:
+Installation Notes:
+- All installation paths are assuming install directory is /usr/local
+- Commands will likely need to be run as sudo
 - ./configure commands followed by indented parameters (ex: ./configure --prefix=/usr/local) are all one-line commands
-- All installation paths are assuming install directory is /usr/local  
+
   
 1. Update package manager
 
@@ -49,6 +51,7 @@ Note:
 
 4. Install OpenSSL
 
+        cd /usr/local
         wget http://www.openssl.org/source/openssl-1.1.1g.tar.gz
         tar -xzf openssl-1.1.1g.tar.gz
         cd openssl-1.1.1g
@@ -58,6 +61,7 @@ Note:
 
 5. Install BoringSSL-OQS fork with liboqs
 
+        cd /usr/local
         git clone --branch master https://github.com/open-quantum-safe/boringssl.git 
         git clone --branch main https://github.com/open-quantum-safe/liboqs.git
         cd liboqs
@@ -72,21 +76,29 @@ Note:
 
 6. Clone modified Envoy-1.23.0 fork
 
+        cd /usr/local
         git clone --single-branch --branch main https://github.com/drouhana/envoy.git envoy
 
 7. Download and extract [Clang+LLVM 14.0.0 binary](https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0). Note: your specific binary may vary depending on your OS
 
-        wget -O clang+llvm-14.0.0.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-        tar -xf clang+llvm-14.0.0.tar.xz
+        cd /usr/local
+        wget https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+        tar -xf clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
         cd /usr/local/envoy
-        bazel/setup_clang.sh /usr/local/clang+llvm-14.0.0
+        bazel/setup_clang.sh /usr/local/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04
 
 8. Build user.bazelrc build file, add build parameters
 
         cd /usr/local/envoy
         echo "build --config=libc++" >> user.bazelrc
 
-9. Build Envoy
+   Note: If echo command errors out with "permission denied," create the file manually and change ownership. Example:
+
+        touch user.bazelrc
+        chown $USER user.bazelrc
+        echo "build --config=libc++" >> user.bazelrc
+
+9. Build Envoy (Note: do not run command as sudo)
 
         bazel build -c opt envoy
 
@@ -101,8 +113,6 @@ Note:
 ![image](https://user-images.githubusercontent.com/56026339/188688403-69b4d2cb-1ee4-4a26-b17f-d90f3166cd79.png)
 
 ## TLS Demo
-
-Note: TLS currently is now functional with standard and post-quantum encryption (8-24 commit)
 
 ### Generate Certificates:
 
@@ -139,3 +149,58 @@ The following commands will be run by the shell script:
     sudo docker kill $(sudo docker ps -q)
     sudo docker container prune -f
 
+
+## Front-Proxy Demo
+
+### Generate Certificates:
+
+All necessary commands are encapsulated in gen_cert.sh. In order to change the encryption algorith, change the term following "-newkey" flag in lines 3 and 5. To execute, navigate to ./certs and run the following command:
+
+    ./gen_cert.sh
+
+### Startup Proxy Servers:
+
+Open one terminal and run the following command:
+
+    ./init.sh
+
+The following commands will be run by the shell script:
+
+    sudo docker-compose pull
+    sudo docker-compose up --build -d
+    sudo docker-compose ps
+
+### Query Proxy Servers:
+
+A shell script with all instructions has been provided to query the servers and run the demo. To print instructions, run the following
+	
+    ./query.sh -h
+
+#### Select Service to Query
+
+To query service 1 or 2, pass the numerical argument with the "-s" flag. Example:
+
+    ./query.sh -s 1
+
+#### Query Post-Quantum Servers Using Pre-Quantum Curl Implementation
+
+This command will fail. To attempt TLS authentication using pre-quantum curl, run the following
+
+    ./query.sh -f -s <SERVICE>
+
+#### Query Post-Quantum Servers Using Post-Quantum Curl Implementation
+
+To perform TLS authentication using post-quantum curl, run the following
+
+    ./query.sh -q -s <SERVICE>
+
+### Terminate Proxy Servers:
+
+In a second terminal, run the following command:
+    
+    ./kill.sh
+
+The following commands will be run by the shell script:
+
+    sudo docker kill $(sudo docker ps -q)
+    sudo docker container prune -f
