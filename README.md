@@ -8,7 +8,9 @@ Open source implementation of quantum-resistant encryption algorithms for modula
 - [Overview](https://github.com/Post-Quantum-Mesh/envoy-oqs#overview)
 - [Quick Start](https://github.com/Post-Quantum-Mesh/envoy-oqs#quick-start)
   - [Local Environment Setup](https://github.com/Post-Quantum-Mesh/envoy-oqs#local-environment-setup)
-  - [TLS Demo](https://github.com/Post-Quantum-Mesh/envoy-oqs#tls-demo)
+- [Post-Quantum Enabled Demos](https://github.com/Post-Quantum-Mesh/envoy-oqs#post-quantum-enabled-demos)
+  - [Transport Layer Security (TLS)]()
+  - [Front Proxy](https://github.com/Post-Quantum-Mesh/envoy-oqs#front-proxy-demo)
 
 ## Components
 
@@ -19,7 +21,7 @@ Open source implementation of quantum-resistant encryption algorithms for modula
 - [openssl-1.1.1](https://github.com/openssl/openssl/tree/OpenSSL_1_1_1-stable)
 
 ### Envoy Build
-- [Envoy-1.23.0 open source](https://github.com/drouhana/envoy)
+- [Envoy-1.23.0 open source](https://github.com/Post-Quantum-Mesh/envoy-oqs.git)
 
 
 ## Overview
@@ -77,7 +79,7 @@ Installation Notes:
 6. Clone modified Envoy-1.23.0 fork
 
         cd /usr/local
-        git clone --single-branch --branch main https://github.com/drouhana/envoy.git envoy
+        git clone --single-branch --branch main https://github.com/Post-Quantum-Mesh/envoy-oqs.git envoy
 
 7. Download and extract [Clang+LLVM 14.0.0 binary](https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0). Note: your specific binary may vary depending on your OS
 
@@ -112,7 +114,11 @@ Installation Notes:
 
 ![image](https://user-images.githubusercontent.com/56026339/188688403-69b4d2cb-1ee4-4a26-b17f-d90f3166cd79.png)
 
-## TLS Demo
+# Demos
+
+Note: All post-quantum enabled demos are located in the ./examples/ directory.
+
+## Transport Layer Security (TLS)
 
 ### Generate Certificates:
 
@@ -150,7 +156,7 @@ The following commands will be run by the shell script:
     sudo docker container prune -f
 
 
-## Front-Proxy Demo
+## Front-Proxy
 
 ### Generate Certificates:
 
