@@ -9,8 +9,8 @@ Open source implementation of quantum-resistant encryption algorithms for modula
 - [Quick Start](https://github.com/Post-Quantum-Mesh/envoy-oqs#quick-start)
   - [Local Environment Setup](https://github.com/Post-Quantum-Mesh/envoy-oqs#local-environment-setup)
 - [Post-Quantum Enabled Demos](https://github.com/Post-Quantum-Mesh/envoy-oqs#post-quantum-enabled-demos)
-  - [Transport Layer Security (TLS)]()
-  - [Front Proxy](https://github.com/Post-Quantum-Mesh/envoy-oqs#front-proxy-demo)
+  - [Transport Layer Security (TLS)](https://github.com/Post-Quantum-Mesh/envoy-oqs#transport-layer-security-tls)
+  - [Front Proxy](https://github.com/Post-Quantum-Mesh/envoy-oqs#front-proxy)
 
 ## Components
 
