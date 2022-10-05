@@ -1,4 +1,5 @@
-FROM drouhana/envoy-oqs:envoy-oqs-base
+#FROM drouhana/envoy-oqs:envoy-oqs-base
+FROM drouhana/envoy-oqs:envoy
 
 COPY ./envoy-frontend.yaml /etc/example/envoy.yaml
 COPY ./certs/CA_cert.pem /etc/example/cacert.pem
@@ -13,4 +14,5 @@ RUN chmod go+r /etc/example/cacert.pem
 RUN chmod go+r /etc/example/clientkey.pem 
 RUN chmod go+r /etc/example/clientcert.pem
 
-CMD ["envoy-static", "-c /etc/example/envoy.yaml"]
+#CMD ["envoy-static", "-c /etc/example/envoy.yaml"]
+CMD ["envoy", "-c /etc/example/envoy.yaml"]

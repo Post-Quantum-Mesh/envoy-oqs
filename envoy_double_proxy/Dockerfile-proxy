@@ -1,4 +1,5 @@
-FROM drouhana/envoy-oqs:envoy-oqs-base
+#FROM drouhana/envoy-oqs:envoy-oqs-base
+FROM drouhana/envoy-oqs:envoy
 
 COPY ./envoy.yaml /etc/example/envoy.yaml
 
@@ -7,4 +8,5 @@ RUN chown "$USER" -R *
 
 RUN chmod go+r /etc/example/envoy.yaml
 
-CMD ["envoy-static", "-c /etc/example/envoy.yaml"]
+#CMD ["envoy-static", "-c /etc/example/envoy.yaml"]
+CMD ["envoy", "-c /etc/example/envoy.yaml"]
