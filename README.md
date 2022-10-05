@@ -116,7 +116,7 @@ Installation Notes:
 
 # Post-Quantum Enabled Demos
 
-Note: All post-quantum enabled demos are located in the ./examples/ directory.
+Note: All post-quantum enabled demos are located in [./examples/](https://github.com/Post-Quantum-Mesh/envoy-oqs/tree/main/examples)
 
 ## Transport Layer Security (TLS)
 
