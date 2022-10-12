@@ -39,6 +39,6 @@ static_resources:
             match_typed_subject_alt_names:
             - san_type: DNS
               matcher:
-                exact: localhost-frontend
+                exact: proxy-postgres-backend.example.com
             trusted_ca:
               filename: /etc/example/cacert.pem

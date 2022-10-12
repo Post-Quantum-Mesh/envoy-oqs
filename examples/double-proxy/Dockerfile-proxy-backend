@@ -1,10 +1,9 @@
-#FROM drouhana/envoy-oqs:envoy-oqs-base
 FROM drouhana/envoy-oqs:envoy
 
 COPY ./envoy-backend.yaml /etc/example/envoy.yaml
 COPY ./certs/CA_cert.pem /etc/example/cacert.pem
-COPY ./certs/localhost-backend.pem /etc/example/servercert.pem
-COPY ./certs/localhostkey.pem /etc/example/serverkey.pem
+COPY ./certs/postgres-backend.example.com.pem /etc/example/servercert.pem
+COPY ./certs/example.com.pem /etc/example/serverkey.pem
 
 WORKDIR /etc/example
 RUN chown "$USER" -R *
@@ -14,5 +13,4 @@ RUN chmod go+r /etc/example/cacert.pem
 RUN chmod go+r /etc/example/serverkey.pem 
 RUN chmod go+r /etc/example/servercert.pem
 
-#CMD ["envoy-static", "-c /etc/example/envoy.yaml"]
 CMD ["envoy", "-c /etc/example/envoy.yaml"]
