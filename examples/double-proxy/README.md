@@ -1,8 +1,8 @@
-# Front-Proxy
+# Double-Proxy
 
 ### Generate Certificates:
 
-All necessary commands are encapsulated in gen_cert.sh. In order to change the encryption algorith, change the term following "-newkey" flag in lines 3 and 5. To execute, navigate to ./certs and run the following command:
+All necessary commands are encapsulated in gen_cert.sh.
 
     ./gen_cert.sh
 
