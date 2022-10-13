@@ -36,5 +36,5 @@ if [[ $FAIL == 1 ]];
 then
     echo "Querying https server using standard curl implementation..."
     echo
-    curl https://localhost:8080/service/$SERVICE -k -v
+    curl https://localhost:10000 -k -v
 fi
