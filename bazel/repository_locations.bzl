@@ -95,21 +95,24 @@ REPOSITORY_LOCATIONS_SPEC = dict(
         project_desc = "Minimal OpenSSL fork",
         project_url = "https://github.com/post-quantum-mesh/boringssl",
         #"https://github.com/drouhana/boringssl",
-        # To update BoringSSL, which tracks Chromium releases:
-        # 1. Open https://omahaproxy.appspot.com/ and note <current_version> of linux/beta release.
-        # 2. Open https://chromium.googlesource.com/chromium/src/+/refs/tags/<current_version>/DEPS and note <boringssl_revision>.
-        # 3. Find a commit in BoringSSL's "master-with-bazel" branch that merges <boringssl_revision>.
-        #
-        # chromium-103.0.5060.24 (linux/beta)
-        version = "3efe9098b6010ddd802adf7c976e316cf34b3927",
-        #"298fdb21fb4ceb969698cbceb743d994935e4ff5",
-        sha256 = "b3edcf150bbac1784ed595b4129d5e7addcbcb4edf2d4c4cc613b83407c25143",
-        #"908b0fc371460f7e9a4bd0579877056f40eb589b2683c84d160bcf6d73cf44c3",
+
+        ## previous versions used:
+        #       drouhana/boringssl "bazel-master-dev"
+        #           "298fdb21fb4ceb969698cbceb743d994935e4ff5",
+        #           "908b0fc371460f7e9a4bd0579877056f40eb589b2683c84d160bcf6d73cf44c3",
+        #       post-quantum-mesh/boringssl "main"
+        #           "3efe9098b6010ddd802adf7c976e316cf34b3927",
+        #           "b3edcf150bbac1784ed595b4129d5e7addcbcb4edf2d4c4cc613b83407c25143",
+
+        version = "48c786d4eb43582d3ec44308700410ab81ed9cab",
+        sha256 = "1699a5bae846e8f8d2efc8ac1e855a0fd2fbae4894a9afe6e35344716e1fd4bf",
+        
         strip_prefix = "boringssl-{version}",
         urls = ["https://github.com/post-quantum-mesh/boringssl/archive/{version}.tar.gz"],
         #["https://github.com/drouhana/boringssl/archive/{version}.tar.gz"],
+
         use_category = ["controlplane", "dataplane_core"],
-        release_date = "2022-10-05",
+        release_date = "2022-10-26",
         cpe = "cpe:2.3:a:google:boringssl:*",
     ),
     boringssl_fips = dict(
